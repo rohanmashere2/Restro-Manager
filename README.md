@@ -69,9 +69,7 @@ lib/
 
 # APK Download 📱
 
-## Download Latest APK
-
-[⬇ Download APK](https://github.com/rohanmashere2/restaurant-management-system/releases)
+[⬇ Download RestroManager APK](https://drive.google.com/file/d/1qJo7oLJ86iS36D3dBD9ABCtBkMowYxkR/view?usp=drive_link)
 
 ---
 
