@@ -71,7 +71,7 @@ lib/
 
 ## Download Latest APK
 
-[Download APK](https://github.com/rohanmashere2/restaurant-management-system/releases)
+[⬇ Download APK](https://github.com/rohanmashere2/restaurant-management-system/releases)
 
 ---
 
