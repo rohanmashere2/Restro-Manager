@@ -1,156 +1,168 @@
-# RestroManager 🍽️
+<div align="center">
+🍽️ Restro-Manager
 
-A Flutter-based Restaurant Management System with waiter ordering, kitchen display system, billing, Firebase authentication, realtime Firestore integration, and multi-device waiter management.
+A Flutter + Firebase powered restaurant operations suite for Managers, Waiters & the Kitchen
 
----
+Author: Rohan
+B.Tech (AI & Data Science) · Dr. D. Y. Patil School of Science & Technology, Pune
 
-# Features 🚀
+Show Image
+Show Image
+Show Image
+Show Image
+Show Image
 
-## Manager Panel
-- Manager Login & Registration
-- Restaurant Profile Management
-- Add/Edit/Delete Menu Items
-- Add/Remove Tables
-- Manage Waiters
-- View Billing History
-- Kitchen Display Monitoring
+📲 Download the Android APK
 
-## Waiter Panel
-- Waiter Login
-- Device-based Authentication
-- Take Customer Orders
-- Add Kitchen Notes
-- Checkout System
-- Realtime Order Updates
+</div>
 
-## Kitchen Display System (KDS)
-- Live Incoming Orders
-- Order Status Tracking
-- Queued → Preparing → Ready → Done
+📖 About the Project
 
-## Billing System
-- Table-wise Billing
-- Order History
-- Realtime Bill Calculation
+Restro-Manager is a cross-platform Flutter application built to digitize the day-to-day operations of a restaurant — from taking orders to billing to kitchen coordination. It supports two distinct user roles with dedicated flows:
 
-## Firebase Integration
-- Firebase Authentication
-- Cloud Firestore
-- Offline Persistence
-- Firebase Cloud Messaging (FCM)
 
----
+👔 Manager — owns the restaurant account, configures tables, menu, and waiter staff, monitors live orders, tracks bills, and runs the kitchen display.
+🧑‍🍳 Waiter — logs in on a registered device, takes table orders against the live menu, and manages checkout for assigned tables.
 
-# Tech Stack 🛠️
 
-- Flutter
-- Dart
-- Firebase Auth
-- Cloud Firestore
-- Firebase Messaging
-- Riverpod
-- Google Fonts
+The app is backed entirely by Firebase (Authentication, Cloud Firestore, and a legacy Realtime Database layer for historical bills), giving every manager account real-time, multi-device synchronization across their staff.
 
----
 
-# Project Structure 📂
+✨ Features
 
-```text
+👔 Manager
+
+
+Secure authentication — Email/Password sign-up with email verification, Google Sign-In, and password reset.
+Restaurant profile — manage restaurant name, owner details, contact info, and address.
+Table management — add/remove tables, view them live.
+Menu management — add items under Veg/Non-Veg categories and sub-categories (Starters, Main Menu, Rice & Biryani, Roti, Cold Drinks), toggle item availability (86'd items stay visible to the manager but hidden from waiters).
+Waiter management — onboard waiters with auto-generated credentials sent via SMS, activate/deactivate accounts, and review individual waiter activity.
+Kitchen Display System (KDS) — a live, cross-table ticket board showing every open order line with a Queued → Preparing → Ready → Done lifecycle, one tap to advance status.
+Bill history — dual-tab view of Cloud (Firestore) bills and Legacy (Realtime Database) bills, with per-invoice breakdowns and timestamps.
+Navigation drawer — quick access to Profile, Menu, Tables, Waiters, History, Kitchen Display, and Logout.
+
+
+🧑‍🍳 Waiter
+
+
+Device-bound login — credentials are tied to a device ID; once logged in on a device, the app auto-recognizes the waiter on next launch (no repeated logins needed).
+Live table menu — browse the manager's live menu, respecting item availability.
+Order checkout — items grouped by category, live kitchen status chips per line, quantity control, and running bill total.
+Waiter profile — edit personal details and securely log out (which also frees the device lock).
+
+
+☁️ Backend & Infrastructure
+
+
+Cloud Firestore as the primary real-time data store (users, tables, menu, waiters, orders, bills).
+Realtime Database retained for legacy historical bill records.
+Offline persistence enabled so waiters can keep working through brief connectivity gaps.
+Google Sign-In integration for managers.
+Device registry service for fast, secure waiter device recognition.
+
+
+
+🛠️ Tech Stack
+
+LayerTechnologyFrameworkFlutter (Dart SDK ^3.9.2)State Managementflutter_riverpodAuthfirebase_auth, google_sign_inDatabasecloud_firestore, firebase_database (legacy)Backend Corefirebase_core, firebase_messagingFonts/UIgoogle_fontsUtilitiesdevice_info_plus, url_launcherPDF/Printpdf, printing
+
+
+🗂️ Project Structure
+
 lib/
+├── main.dart                     # App entry point, Firebase init, theming
+├── firebase_options.dart         # FlutterFire-generated platform config
 ├── models/
-├── screens/
+│   ├── menu.dart                 # MenuItem model
+│   ├── table.dart                # AppTable model
+│   ├── waiter.dart                # Waiter model
+│   └── order_line_status.dart     # Kitchen order lifecycle (queued/preparing/ready/done)
 ├── services/
+│   └── waiter_device_registry.dart  # Device-based waiter auto-login registry
 ├── widgets/
-├── firebase_options.dart
-└── main.dart
-```
+│   └── main_drawer.dart          # Manager navigation drawer
+└── screens/
+    ├── selection_screen.dart          # Manager / Waiter role selection
+    ├── manager_login_screen.dart
+    ├── manager_register_screen.dart
+    ├── manager_home_screen.dart
+    ├── manager_profile_screen.dart
+    ├── manager_table_screen.dart
+    ├── table_add_screen.dart
+    ├── manager_menu_screen.dart
+    ├── menu_add_screen.dart
+    ├── manager_waiter_screen.dart
+    ├── manager_waiter_view.dart
+    ├── waiter_add_screen.dart
+    ├── manager_checkout_screen.dart
+    ├── kitchen_display_screen.dart
+    ├── bill_history_screen.dart
+    ├── reset_password_screen.dart
+    ├── waiter_login_screen.dart
+    ├── waiter_home_screen.dart
+    ├── waiter_menu_screen.dart
+    ├── waiter_checkout_screen.dart
+    └── waiter_profile_screen.dart
 
----
 
-# APK Download 📱
+🚀 Getting Started
 
-[⬇ Download RestroManager APK](https://drive.google.com/file/d/1qJo7oLJ86iS36D3dBD9ABCtBkMowYxkR/view?usp=drive_link)
+Prerequisites
 
----
 
-# Installation ⚙️
+Flutter SDK (3.9.x or newer)
+A Firebase project with Authentication (Email/Password + Google), Cloud Firestore, and Realtime Database enabled
+Android Studio / Xcode for platform builds
 
-## Clone Repository
 
-```bash
-git clone https://github.com/rohanmashere2/restaurant-management-system.git
-```
+Installation
 
-## Install Dependencies
+bash# Clone the repository
+git clone https://github.com/<your-username>/Restro-Manager.git
+cd Restro-Manager
 
-```bash
+# Install dependencies
 flutter pub get
-```
 
-## Run Project
-
-```bash
-flutter run
-```
-
----
-
-# Build APK 📦
-
-```bash
-flutter build apk --release
-```
-
-APK location:
-
-```text
-build/app/outputs/flutter-apk/app-release.apk
-```
-
----
-
-# Firebase Setup 🔥
-
-1. Create Firebase Project
-2. Add Android App
-3. Download `google-services.json`
-4. Place inside:
-
-```text
-android/app/
-```
-
-5. Run:
-
-```bash
+# Configure Firebase (generates firebase_options.dart)
 flutterfire configure
-```
 
----
+# Run the app
+flutter run
 
-# Future Improvements 💡
+Firebase Data Model (high level)
 
-- PDF Invoice Generation
-- Thermal Printer Support
-- QR Table Ordering
-- Inventory Management
-- Analytics Dashboard
-- Online Payments
+Each manager account is a document under users/{uid} containing:
 
----
+users/{uid}
+├── Restaurant Name, Owner Name, Email, Mobile No, Address
+├── tables: [ "Table 1", "Table 2", ... ]
+├── waiters: [ { name, username, password, mobile no, active, deviceCode } ]
+├── menu: { Veg: { Starters: [...], ... }, Non-Veg: { ... } }
+├── add_menu: { "Table 1": [ { name, price, quantity, note, kitchenStatus, lineId } ] }
+├── total_bill: { "Table 1": 450.0 }
+└── bill_records/ (Firestore subcollection — cloud bill history)
 
-# Developer 👨‍💻
 
-Rohan Mashere
+📥 Download
 
-GitHub:
-https://github.com/rohanmashere2
+Grab the latest signed Android APK here:
 
----
+➡️ Restro-Manager — APK
 
-# License 📄
 
-This project is licensed under the MIT License.
+🤝 Contributing
 
-MIT License
+Contributions, issues, and feature requests are welcome! Feel free to check the issues page or open a pull request.
 
+
+📄 License
+
+This project is licensed under the MIT License — see the LICENSE file for details.
+
+
+<div align="center">
+Made with ❤️ using Flutter & Firebase
+
+</div>
